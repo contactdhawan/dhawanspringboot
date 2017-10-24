@@ -40,19 +40,21 @@ public class ProductController {
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public String saveProduct(Product product) {
         Product savedproduct = productService.saveOrUpdateProduct(product);
-        return "redirect:/product/" + savedproduct.getId();
+        //return "redirect:/product/" + savedproduct.getId();
+        return "redirect:/products";
     }
 
     @RequestMapping("/product/edit/{Id}")
     public String updateProduct(@PathVariable Integer Id, Model model) {
         model.addAttribute("product", productService.getProductById(Id));
         return "newProduct";
+
     }
 
     @RequestMapping("/product/delete/{Id}")
     public String deleteProduct(@PathVariable Integer Id, Model model) {
         model.addAttribute("products", productService.deleteProduct(Id));
-        return "product";
+        return "redirect:/products";
     }
 
 }
