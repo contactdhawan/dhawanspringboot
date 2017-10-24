@@ -34,7 +34,7 @@ public class ProductController {
     @RequestMapping("/product/new")
     public String createNewProduct(Model model) {
         model.addAttribute("product", new Product());
-        return "newproduct";
+        return "newProduct";
     }
 
     @RequestMapping(value = "/product", method = RequestMethod.POST)
