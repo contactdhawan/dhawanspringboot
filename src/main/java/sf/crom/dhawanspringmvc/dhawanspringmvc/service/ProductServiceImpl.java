@@ -41,6 +41,17 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @Override
+    public List<Product> deleteProduct(Integer Id) {
+        Product deleteProduct = products.get(Id);
+        if (deleteProduct != null) {
+            products.remove(Id);
+            return new ArrayList<>(products.values());
+        } else {
+            throw new RuntimeException("Cannot delete anything that does not exists");
+        }
+    }
+
     public Integer getNextKey() {
         return Collections.max(products.keySet()) + 1;
     }

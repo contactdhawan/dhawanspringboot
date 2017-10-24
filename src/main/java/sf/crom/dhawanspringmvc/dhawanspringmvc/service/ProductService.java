@@ -13,4 +13,6 @@ public interface ProductService {
     Product getProductById(Integer Id);
 
     Product saveOrUpdateProduct(Product product);
+
+    List<Product> deleteProduct(Integer Id);
 }
