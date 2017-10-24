@@ -43,4 +43,10 @@ public class ProductController {
         return "redirect:/product/" + savedproduct.getId();
     }
 
+    @RequestMapping("/product/edit/{Id}")
+    public String createNewProduct(@PathVariable Integer Id, Model model) {
+        model.addAttribute("product", productService.getProductById(Id));
+        return "newProduct";
+    }
+
 }
