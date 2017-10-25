@@ -1,0 +1,1 @@
+mvn clean install & cf login -a https://api.run.pivotal.io -u contactdhawan@gmail.com -p Solutions$123 & cf push -p target\dhawanspringmvc-0.0.1-SNAPSHOT.jar
