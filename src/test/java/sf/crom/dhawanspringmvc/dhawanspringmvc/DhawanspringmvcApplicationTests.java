@@ -12,6 +12,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sf.crom.dhawanspringmvc.dhawanspringmvc.controller.IndexController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,7 +30,8 @@ public class DhawanspringmvcApplicationTests {
 
 	@Test
 	public void contextLoads() throws Exception {
-		mockmvc.perform(get("/")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.view().name("index"));
+		mockmvc.perform(get("/")).andExpect(status().isOk()).andExpect(MockMvcResultMatchers.view().name("index"));
 	}
+
 
 }

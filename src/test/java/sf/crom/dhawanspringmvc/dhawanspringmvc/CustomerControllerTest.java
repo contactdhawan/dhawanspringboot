@@ -18,8 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -57,4 +60,17 @@ public class CustomerControllerTest {
                 .andExpect(MockMvcResultMatchers.model().attribute("customers",hasSize(2)));
     }
 
+    @Test
+    public void testAddNewCustomer() throws Exception {
+        mockMvc.perform(get("/customer/new/"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("customer"))
+                .andExpect(model().attribute("customerobj", instanceOf(Customer.class)));
+    }
+
+    /*@Test
+    public void testAddNewCustomerUpdate() throws Exception{
+        mockMvc.perform(post("/customer/updateCustomer/"))
+                .andExpect(view().name("customers"));
+    }*/
 }
